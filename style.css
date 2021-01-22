@@ -1,3 +1,9 @@
 header {
     text-align: center;
+    background-color: rgb(28, 6, 80);
+    color: rgb(243, 240, 240);
+}
+
+.container {
+    margin-top: 20px;
 }
