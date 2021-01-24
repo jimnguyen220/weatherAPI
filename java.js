@@ -1,6 +1,6 @@
 
 var cities = [];
-var currentDay = moment().format('dddd, MMMM Do YYYY, h:mm a');
+var currentDay = moment().format('dddd, MMMM Do YYYY');
 
 function renderButtons() {
     $("#cities-list").empty();
@@ -14,7 +14,17 @@ function renderButtons() {
     }
 }
 
+function checkLocalStorage() {
+    var existingCities = localStorage.getItem('cityValue');
 
+    if (existingCities === null) {
+        return;
+    } else {    
+        cities.push(existingCities);
+        renderButtons(existingCities);
+    }
+
+};
 
 function cityWeather() {
     var cityValue = $("#city-search").val().trim();
@@ -52,14 +62,21 @@ function cityWeather() {
         }).then(function(data){
             var uvIndex = data.value;
             $('#current-city-uv').text(uvIndex);
+
+            uvIndex = parseInt(uvIndex);
+            if (uvIndex <= 1.99) {
+                $('#current-city-uv').attr('class', 'favorable');
+            } else if (uvIndex >= 2 && uvIndex <= 5.99) {
+                $('#current-city-uv').attr('class', 'moderate');
+            } else {
+                $('#current-city-uv').attr('class', 'severe');
+            }
         })
 
     })
 
   cities.push(cityValue);
   renderButtons();
-
-
 };
 
 function displayWeather(){
@@ -77,5 +94,9 @@ function displayWeather(){
     })
 };
 
+checkLocalStorage();
 $(document).on('click', ".city-button", displayWeather);
-$("#search-button").on('click', cityWeather);
+$("#search-button").on('click', function(){
+    cityWeather();
+    localStorage.setItem('cityValue', cities);
+});

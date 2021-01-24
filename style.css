@@ -4,6 +4,22 @@ header {
     color: rgb(243, 240, 240);
 }
 
+#current-weather {
+    background-color: lightgrey;
+}
+
 .container {
     margin-top: 20px;
+}
+
+.favorable {
+    color: green;
+}
+
+.moderate {
+    color: yellow;
+}
+
+.severe {
+    color: red;
 }
