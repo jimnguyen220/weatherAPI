@@ -20,12 +20,13 @@
                     <input type="text" class="form-control" id="city-search" placeholder="Enter City Name" aria-label="City Name" aria-describedby="city-name">
                     <button class="btn btn-primary" type="button" id="search-button">Search</button>
                 </div>
-                <div id="cities-list">
+                <div class="d-grid gap-2" id="cities-list">
 
                 </div>
             </div>
             <div class="col-8" id="cities-display">
                 <div id="current-weather">
+                    <h2>Weather for: <span id="current-city-weather"></span></h2>
 
                 </div>
                 <div id="current-five-day">
@@ -37,6 +38,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="java.js"></script>
 </body>
 </html>
