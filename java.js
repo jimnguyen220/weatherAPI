@@ -1,6 +1,6 @@
 
 var cities = [];
-var currentDay = moment().format('dddd, MMMM Do YYYY');
+var currentDay = moment().format('dddd, MMMM Do YYYY, h:mm a');
 
 function renderButtons() {
     $("#cities-list").empty();
@@ -24,12 +24,30 @@ function cityWeather() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        // console.log(response +" cityWeather function");
+        $('#current-city-weather').text(cityValue);
+        $('#current-time').text(currentDay);
+        console.log(response);
+
+        var forecast = response.list[0].weather[0].description;
+        $('#current-city-condition').html((forecast).toUpperCase());
+
+        var tempK = response.list[0].main.temp;
+        var tempF = Math.round((tempK - 273.15) * 1.80 + 32);
+        $('#current-city-temp').html(tempF + "&deg;F")
+
+        var humidity = response.list[0].main.humidity + "%"
+        $('#current-city-humitidy').text(humidity);
+
+        var wind = response.list[0].wind.speed + " mph";
+        $("#current-city-wind").text(wind);
+
+        
     })
 
   cities.push(cityValue);
   renderButtons();
-    $('#current-city-weather').text(cityValue+" on "+ currentDay);
+
+
 };
 
 function displayWeather(){
@@ -42,8 +60,8 @@ function displayWeather(){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response);
-        console.log(queryURL + " displayWeather");
+        // console.log(response);
+        // console.log(queryURL + " displayWeather");
     })
 };
 
