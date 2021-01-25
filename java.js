@@ -1,6 +1,8 @@
 var cities = [];
 var currentDay = moment().format('dddd, MMMM Do YYYY');
 
+$('#current-time').text(currentDay);
+
 function renderButtons() {
     $("#cities-list").empty();
 
@@ -34,11 +36,16 @@ function cityWeather() {
         method: "GET"
     }).then(function(response) {
         $('#current-city-weather').text(cityValue);
-        $('#current-time').text(currentDay);
         console.log(response);
 
         var forecast = response.list[0].weather[0].description;
+        var forecastIcon = response.list[0].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
+        
         $('#current-city-condition').html((forecast).toUpperCase());
+        newImage.attr('src', iconURL);
+        $('#current-city-condition').prepend(newImage);
 
         var tempK = response.list[0].main.temp;
         var tempF = Math.round((tempK - 273.15) * 1.80 + 32);
@@ -97,7 +104,13 @@ function displayWeather(){
 
 
         var forecast = response.list[0].weather[0].description;
+        var forecastIcon = response.list[0].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
+        
         $('#current-city-condition').html((forecast).toUpperCase());
+        newImage.attr('src', iconURL);
+        $('#current-city-condition').prepend(newImage);
 
         var tempK = response.list[0].main.temp;
         var tempF = Math.round((tempK - 273.15) * 1.80 + 32);
@@ -113,7 +126,7 @@ function displayWeather(){
         var lon = response.city.coord.lon;
 
         var newURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=87378d54c0188556c3571925d4983352";
-        console.log(newURL);
+
         $.ajax({
             url: newURL,
             method: "GET"

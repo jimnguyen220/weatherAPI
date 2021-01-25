@@ -10,11 +10,12 @@
 <body>
     <header class="row">
         <h1>Weather Dashboard</h1>
+        <div class="center-text" id="current-time"></div>
     </header>
 
     <main class="container">
         <div class="row">
-            <div class="col-4" id="cities-column">
+            <div class="col-3" id="cities-column">
                 <!-- Search box and append cities under search box -->
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="city-search" placeholder="Enter City Name" aria-label="City Name" aria-describedby="city-name">
@@ -24,11 +25,10 @@
 
                 </div>
             </div>
-            <div class="col-8" id="cities-display">
+            <div class="col-9" id="cities-display">
                 <div id="current-weather">
-                    <h1 id="current-time">Today's Date</h1>
-                    <h2>Weather for: <span id="current-city-weather"></span></h2>
-                    <h3>Current Weather Conditions: <span id="current-city-condition"></span></h3>
+                    <h1><span id="current-city-weather">City name</span></h2>
+                    <h3><span id="current-city-condition"></span></h3>
                     <h3>Temperature: <span id="current-city-temp"></span></span></h3>
                     <h3>Humidity: <span id="current-city-humitidy"></span></span></h3>
                     <h3>Wind Speed: <span id="current-city-wind"></span></span></h3>
@@ -36,7 +36,47 @@
 
                 </div>
                 <div id="current-five-day">
-                    
+                    <!-- <div class="card" style="width: 12rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 12rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 12rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 12rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 12rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                      </div>
+                    </div>
+                     -->
                 </div>
             </div>
         </div>

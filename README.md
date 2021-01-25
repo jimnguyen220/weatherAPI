@@ -24,3 +24,5 @@ https://openweathermap.org/
 https://momentjs.com/
 
 https://getbootstrap.com
+
+https://www.who.int/uv/publications/en/UVIGuide.pdf

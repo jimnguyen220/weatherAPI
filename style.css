@@ -32,3 +32,7 @@ header {
 .extreme {
     color: purple;
 }
+
+.center-text {
+    text-align: center;
+}
