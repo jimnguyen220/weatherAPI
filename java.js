@@ -15,13 +15,14 @@ function renderButtons() {
 }
 
 function checkLocalStorage() {
-    var existingCities = localStorage.getItem('cityValue');
+    var existingCities = JSON.parse(localStorage.getItem('cityStorage'));
 
-    if (existingCities === null) {
+    if (!existingCities) {
         return;
-    } else {    
+    } else {   
+
+        console.log(existingCities); 
         cities.push(existingCities);
-        renderButtons(existingCities);
     }
 
 };
@@ -95,8 +96,9 @@ function displayWeather(){
 };
 
 checkLocalStorage();
+renderButtons();
 $(document).on('click', ".city-button", displayWeather);
 $("#search-button").on('click', function(){
     cityWeather();
-    localStorage.setItem('cityValue', cities);
+    localStorage.setItem("cityStorage", JSON.stringify(cities));
 });
