@@ -19,7 +19,6 @@ function checkLocalStorage() {
     if (!existingCities) {
         return;
     } else {   
-
         console.log(existingCities); 
         cities = cities.concat(existingCities);
     }
@@ -64,12 +63,16 @@ function cityWeather() {
             $('#current-city-uv').text(uvIndex);
 
             uvIndex = parseInt(uvIndex);
-            if (uvIndex <= 1.99) {
+            if (uvIndex <= 2.99) {
                 $('#current-city-uv').attr('class', 'favorable');
-            } else if (uvIndex >= 2 && uvIndex <= 5.99) {
+            } else if (uvIndex >= 3 && uvIndex <= 5.99) {
                 $('#current-city-uv').attr('class', 'moderate');
-            } else {
+            } else if (uvIndex >=6 && uvIndex <= 7.99) {
+                $('#current-city-uv').attr('class', 'high');
+            } else if (uvIndex >=8 && uvIndex <= 10.99) {
                 $('#current-city-uv').attr('class', 'severe');
+            } else {
+                $('#current-city-uv').attr('class', 'extreme');
             }
         })
 
@@ -85,14 +88,13 @@ function displayWeather(){
     var cityValue = $(this).attr('data-city')
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ cityValue +"&cnt=5"+"&appid=87378d54c0188556c3571925d4983352";
 
-
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
         $('#current-city-weather').text(cityValue);
         $('#current-time').text(currentDay);
-        console.log(response);
+
 
         var forecast = response.list[0].weather[0].description;
         $('#current-city-condition').html((forecast).toUpperCase());
@@ -120,12 +122,16 @@ function displayWeather(){
             $('#current-city-uv').text(uvIndex);
 
             uvIndex = parseInt(uvIndex);
-            if (uvIndex <= 1.99) {
+            if (uvIndex <= 2.99) {
                 $('#current-city-uv').attr('class', 'favorable');
-            } else if (uvIndex >= 2 && uvIndex <= 5.99) {
+            } else if (uvIndex >= 3 && uvIndex <= 5.99) {
                 $('#current-city-uv').attr('class', 'moderate');
-            } else {
+            } else if (uvIndex >=6 && uvIndex <= 7.99) {
+                $('#current-city-uv').attr('class', 'high');
+            } else if (uvIndex >=8 && uvIndex <= 10.99) {
                 $('#current-city-uv').attr('class', 'severe');
+            } else {
+                $('#current-city-uv').attr('class', 'extreme');
             }
         })
 

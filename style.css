@@ -5,6 +5,7 @@ header {
 }
 
 #current-weather {
+    padding: 10px;
     background-color: lightgrey;
 }
 
@@ -20,6 +21,14 @@ header {
     color: yellow;
 }
 
+.high {
+    color: orange;
+}
+
 .severe {
     color: red;
+}
+
+.extreme {
+    color: purple;
 }
