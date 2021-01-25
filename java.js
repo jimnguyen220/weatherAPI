@@ -22,9 +22,9 @@ function checkLocalStorage() {
     } else {   
 
         console.log(existingCities); 
-        cities.push(existingCities);
+        cities = cities.concat(existingCities);
     }
-
+    renderButtons();
 };
 
 function cityWeather() {
@@ -100,5 +100,5 @@ renderButtons();
 $(document).on('click', ".city-button", displayWeather);
 $("#search-button").on('click', function(){
     cityWeather();
-    localStorage.setItem("cityStorage", JSON.stringify(cities));
+    localStorage.setItem("cityStorage", JSON.stringify(cities));    
 });
