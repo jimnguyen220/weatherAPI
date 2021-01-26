@@ -155,6 +155,11 @@ checkLocalStorage();
 renderButtons();
 $(document).on('click', ".city-button", displayWeather);
 $("#search-button").on('click', function(){
+    var citySearch = $("#city-search").val().trim();
+    if (citySearch === ""){
+        return
+    } else {
     cityWeather();
-    localStorage.setItem("cityStorage", JSON.stringify(cities));    
+    localStorage.setItem("cityStorage", JSON.stringify(cities));     
+    } 
 });
