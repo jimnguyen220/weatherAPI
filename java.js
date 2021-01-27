@@ -1,7 +1,22 @@
 var cities = [];
 var currentDay = moment().format('dddd, MMMM Do YYYY');
-
 $('#current-time').text(currentDay);
+
+var dayPlusOne = moment().add(1, 'days').format("MM/DD/YY");
+$('#calendar-plus-one').text(dayPlusOne);
+var dayPlusTwo = moment().add(2, 'days').format("MM/DD/YY");
+$('#calendar-plus-two').text(dayPlusTwo);
+var dayPlusThree = moment().add(3, 'days').format("MM/DD/YY");
+$('#calendar-plus-three').text(dayPlusThree);
+var dayPlusFour = moment().add(4, 'days').format("MM/DD/YY");
+$('#calendar-plus-four').text(dayPlusFour);
+var dayPlusFive = moment().add(5, 'days').format("MM/DD/YY");
+$('#calendar-plus-five').text(dayPlusFive);
+
+
+
+
+
 
 function renderButtons() {
     $("#cities-list").empty();
@@ -127,6 +142,7 @@ function displayWeather(){
 
         var newURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=87378d54c0188556c3571925d4983352";
 
+
         $.ajax({
             url: newURL,
             method: "GET"
@@ -150,6 +166,7 @@ function displayWeather(){
 
     })
 };
+
 
 checkLocalStorage();
 renderButtons();

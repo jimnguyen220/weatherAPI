@@ -14,23 +14,28 @@ header {
 }
 
 .favorable {
-    color: green;
+    background-color: green;
+    color: white;
 }
 
 .moderate {
-    color: yellow;
+    background-color: yellow;
+    color: black;
 }
 
 .high {
-    color: orange;
+    background-color: orange;
+    color: black;
 }
 
 .severe {
-    color: red;
+    background-color:  red;
+    color: white;
 }
 
 .extreme {
-    color: purple;
+    background-color: purple;
+    color: white;
 }
 
 .center-text {

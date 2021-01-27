@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <title>What's the Weather?</title>
 </head>
@@ -13,19 +14,18 @@
         <div class="center-text" id="current-time"></div>
     </header>
 
-    <main class="container">
+    <main class="container-fluid">
         <div class="row">
-            <div class="col-3" id="cities-column">
-                <!-- Search box and append cities under search box -->
+            <div class="col-4" id="cities-column">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="city-search" placeholder="Enter City Name" aria-label="City Name" aria-describedby="city-name">
-                    <button class="btn btn-primary" type="button" id="search-button">Search</button>
+                    <button class="btn btn-primary" type="button" id="search-button"><i class="bi bi-search"></i></button>
                 </div>
                 <div class="d-grid gap-2" id="cities-list">
 
                 </div>
             </div>
-            <div class="col-9" id="cities-display">
+            <div class="col-8" id="cities-display">
                 <div id="current-weather">
                     <h1><span id="current-city-weather">City name</span></h2>
                     <h3><span id="current-city-condition"></span></h3>
@@ -35,48 +35,65 @@
                     <h3>UV Index: <span id="current-city-uv"></span></h3>
 
                 </div>
-                <div id="current-five-day">
-                    <!-- <div class="card" style="width: 12rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
+                
+                <h2>5 Day Forecast</h2>
+                
+                <div class="row" id="current-five-day">
+                    <div class="card" style="width: 11rem;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="calendar-plus-one"></h5>
+                          <h6 class="card-subtitle"></h6>
+                          <p class="card-text">
+                            <h5>High temp: <span id="one-hi-temp"></span></h3>
+                            <h5>Low temp: <span id="one-low-temp"></span></h3>
+                            <h5>Humidity: <span id="one-humidity"></span></h3>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card" style="width: 12rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
+                      <div class="card" style="width: 11rem;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="calendar-plus-two"></h5>
+                          <h6 class="card-subtitle"></h6>
+                          <p class="card-text">
+                            <h5>High temp: <span id="two-hi-temp"></span></h3>
+                            <h5>Low temp: <span id="two-low-temp"></span></h3>
+                            <h5>Humidity: <span id="two-humidity"></span></h3>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card" style="width: 12rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
+                      <div class="card" style="width: 11rem;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="calendar-plus-three"></h5>
+                          <h6 class="card-subtitle"></h6>
+                          <p class="card-text">
+                            <h5>High temp: <span id="three-hi-temp"></span></h3>
+                            <h5>Low temp: <span id="three-low-temp"></span></h3>
+                            <h5>Humidity: <span id="three-humidity"></span></h3>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card" style="width: 12rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
+                      <div class="card" style="width: 11rem;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="calendar-plus-four"></h5>
+                          <h6 class="card-subtitle"></h6>
+                          <p class="card-text">
+                            <h5>High temp: <span id="four-hi-temp"></span></h3>
+                            <h5>Low temp: <span id="four-low-temp"></span></h3>
+                            <h5>Humidity: <span id="four-humidity"></span></h3>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card" style="width: 12rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
+                      <div class="card" style="width: 11rem;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="calendar-plus-five"></h5>
+                          <h6 class="card-subtitle"></h6>
+                          <p class="card-text">
+                            <h5>High temp: <span id="five-hi-temp"></span></h3>
+                            <h5>Low temp: <span id="five-low-temp"></span></h3>
+                            <h5>Humidity: <span id="five-humidity"></span></h3>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                     -->
                 </div>
             </div>
         </div>
