@@ -14,10 +14,6 @@ var dayPlusFive = moment().add(5, 'days').format("MM/DD/YY");
 $('#calendar-plus-five').text(dayPlusFive);
 
 
-
-
-
-
 function renderButtons() {
     $("#cities-list").empty();
 
@@ -102,6 +98,7 @@ function cityWeather() {
 
   cities.push(cityValue);
   renderButtons();
+  forecastDisplay(cityValue);
 };
 
 
@@ -165,9 +162,81 @@ function displayWeather(){
         })
 
     })
+
+    forecastDisplay(cityValue);
+};
+
+//code here to display forecast 
+function forecastDisplay (cityValue) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ cityValue +"&cnt=6"+"&appid=87378d54c0188556c3571925d4983352";
+    
+    $('#calendar-plus-one').empty();
+    $('#calendar-plus-two').empty();
+    $('#calendar-plus-three').empty();
+    $('#calendar-plus-four').empty();
+    $('#calendar-plus-five').empty();
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response)
+        var forecastIconOne = response.list[1].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIconOne + "@2x.png";
+        newImage.attr('src', iconURL);
+        $('#calendar-plus-one').append(newImage);
+
+        var tempKOne = response.list[1].main.temp;
+        var tempFOne = Math.round((tempKOne - 273.15) * 1.80 + 32);
+        $('#one-temp').html(tempFOne + "&deg;F")
+
+        var forecastIconTwo = response.list[2].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIconTwo + "@2x.png";
+        newImage.attr('src', iconURL);
+        $('#calendar-plus-two').append(newImage);
+
+        var tempKTwo = response.list[2].main.temp;
+        var tempFTwo = Math.round((tempKTwo - 273.15) * 1.80 + 32);
+        $('#two-temp').html(tempFTwo + "&deg;F")
+
+        var forecastIconThree = response.list[3].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIconThree + "@2x.png";
+        newImage.attr('src', iconURL);
+        $('#calendar-plus-three').append(newImage);
+
+        var tempKThree = response.list[3].main.temp;
+        var tempFThree = Math.round((tempKThree - 273.15) * 1.80 + 32);
+        $('#three-temp').html(tempFThree + "&deg;F")
+
+        var forecastIconFour = response.list[4].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIconFour + "@2x.png";
+        newImage.attr('src', iconURL);
+        $('#calendar-plus-four').append(newImage);
+
+        var tempKFour = response.list[4].main.temp;
+        var tempFFour = Math.round((tempKFour - 273.15) * 1.80 + 32);
+        $('#four-temp').html(tempFFour + "&deg;F")
+
+        var forecastIconFive = response.list[5].weather[0].icon;
+        var newImage = $('<img>')
+        var iconURL = "https://openweathermap.org/img/wn/" + forecastIconFive + "@2x.png";
+        newImage.attr('src', iconURL);
+        $('#calendar-plus-five').append(newImage);
+
+        var tempKFive = response.list[5].main.temp;
+        var tempFFive = Math.round((tempKFive - 273.15) * 1.80 + 32);
+        $('#five-temp').html(tempFFive + "&deg;F")
+
+    })
 };
 
 
+
+// everything down here already works
 checkLocalStorage();
 renderButtons();
 $(document).on('click', ".city-button", displayWeather);
