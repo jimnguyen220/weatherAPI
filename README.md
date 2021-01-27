@@ -1,11 +1,14 @@
 # weatherAPI
-The goal of this project is to create a weather app using a weather API. When the page is loaded, you see a search bar.  Type in the city and that will append a button underneath a search bar.  When you type in another city, it adds that city to the list of previously searched cities.  
+The goal of this project is to create a weather app using a weather API. The scenario is to design an app for a traveler who will want to visit multiple cities.  When the page is loaded, you see a search bar.  You will also notice that the current date is displayed on the top navigation bar.  This date is updated using momentjs.com.  
 
-When you click on the button for a previous result, it will update the date and display the current weather for that particular city as shown in the screen shot below.
+![Weather API](./assets/WeatherAPI.jpg)
 
-![City Weather Display](./assets/currentCity.jpg)
+Type in the city and hit the search icon.  This will display the city name, weather conditions, humidity, wind speed and UV index.  It will also update the 5 day forecast to help with any planning while visiting that city.  To help with travel plans, the name of that city that will append as a button underneath a search bar to make it easy to recall that information.  Clicking that button will update the page with that particular cities information.  
 
-The font color for the UV index is updated to indictate the level of risk as rated by the World Health Organization.  A visual representation of the color scheme is below.
+![finished weather API](./assets/finishedWeatherAPI.jpg)
+
+
+You may notice that the UV index color changes depending on the value. A visual representation of the color scheme is below.  The chart is from the World Health Organization for UV index.
 
 ![WHO UV Index](./assets/UVIndex.jpg)
 

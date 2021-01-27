@@ -57,9 +57,9 @@ function cityWeather() {
         var newImage = $('<img>')
         var iconURL = "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
         
-        $('#current-city-condition').html((forecast).toUpperCase());
+        $('#current-city-condition').text((forecast).toUpperCase());
         newImage.attr('src', iconURL);
-        $('#current-city-condition').prepend(newImage);
+        $('#current-city-icon').html(newImage);
 
         var tempK = response.list[0].main.temp;
         var tempF = Math.round((tempK - 273.15) * 1.80 + 32);
@@ -123,9 +123,9 @@ function displayWeather(){
         var newImage = $('<img>')
         var iconURL = "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
 
-        $('#current-city-condition').html((forecast).toUpperCase());
+        $('#current-city-condition').text((forecast).toUpperCase());
         newImage.attr('src', iconURL);
-        $('#current-city-condition').prepend(newImage);
+        $('#current-city-icon').html(newImage);
 
         var tempK = response.list[0].main.temp;
         var tempF = Math.round((tempK - 273.15) * 1.80 + 32);
