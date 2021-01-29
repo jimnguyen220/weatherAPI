@@ -249,6 +249,7 @@ function forecastDisplay (cityValue) {
 // everything down here already works
 checkLocalStorage();
 renderButtons();
+forecastDate();
 $(document).on('click', ".city-button", displayWeather);
 $("#search-button").on('click', function(){
     var citySearch = $("#city-search").val().trim();
